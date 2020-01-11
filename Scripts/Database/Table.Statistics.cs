@@ -11,14 +11,26 @@ namespace wovencode
 {
 
 	// ===================================================================================
-	// TableStatistics
+	// DatabaseManager
 	// ===================================================================================
-	class TableStatistics
+	public partial class DatabaseManager
 	{
-		public string 	owner 		{ get; set; }
-		public string 	name 		{ get; set; }
-		public string	category	{ get; set; }
-		public long 	value 		{ get; set; }
-	}
+	
+		// -------------------------------------------------------------------------------
+		// TableExample
+		// -------------------------------------------------------------------------------
+		class TableStatistics
+		{
+			public string 	owner 		{ get; set; }
+			public string 	name 		{ get; set; }
+			public string	category	{ get; set; }
+			public long 	value 		{ get; set; }
+		}
 		
+	}
+	
+	// -----------------------------------------------------------------------------------
+	
 }
+
+// =======================================================================================
