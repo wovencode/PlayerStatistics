@@ -14,9 +14,9 @@ using wovencode;
 namespace wovencode {
 	
 	// ===================================================================================
-	// PlayerStatisticManager
+	// PlayerStatisticComponent
 	// ===================================================================================
-	public partial class PlayerStatisticManager
+	public partial class PlayerStatisticComponent
 	{
 		
 		// -------------------------------------------------------------------------------
@@ -26,13 +26,13 @@ namespace wovencode {
 		public void TrackStatistic(string _name, long _value, string _category="")
 		{
 			
-			for (int i = 0; i < syncStatistics.Count; i++)
+			for (int i = 0; i < syncData.Count; i++)
 			{
-				if (syncStatistics[i].GetMatch(_name, _category))
+				if (syncData[i].GetMatch(_name, _category))
 				{
-					StatisticSyncStruct entry = syncStatistics[i];
+					StatisticSyncStruct entry = syncData[i];
 					entry.value += _value;
-					syncStatistics[i] = entry;
+					syncData[i] = entry;
 					return;
 				}
 			}

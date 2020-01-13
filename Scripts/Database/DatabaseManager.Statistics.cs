@@ -50,7 +50,7 @@ namespace wovencode
 		[DevExtMethods("LoadData")]
 		public void LoadData_Statistics(GameObject player)
 		{
-	   		PlayerStatisticManager manager = player.GetComponent<PlayerStatisticManager>();
+	   		PlayerStatisticComponent manager = player.GetComponent<PlayerStatisticComponent>();
 	   		
 	   		foreach (TablePlayerStatistics row in Query<TablePlayerStatistics>("SELECT * FROM TablePlayerStatistics WHERE owner=?", player.name))
 				manager.AddEntry(row.name, row.category, row.value);
@@ -67,7 +67,7 @@ namespace wovencode
 	   		// you should delete all data of this player first, to prevent duplicates
 	   		DeleteData_Statistics(player.name);
 	   		
-	   		PlayerStatisticManager manager = player.GetComponent<PlayerStatisticManager>();
+	   		PlayerStatisticComponent manager = player.GetComponent<PlayerStatisticComponent>();
 	   		
 	   		foreach (StatisticSyncStruct entry in manager.GetEntries(false))
 	   		{

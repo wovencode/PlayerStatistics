@@ -15,14 +15,14 @@ using wovencode;
 namespace wovencode {
 	
 	// ===================================================================================
-	// PlayerStatisticManager
+	// PlayerStatisticComponent
 	// ===================================================================================
 	[DisallowMultipleComponent]
 	[System.Serializable]
-	public partial class PlayerStatisticManager : SyncableManager
+	public partial class PlayerStatisticComponent : SyncableComponent
 	{
 		
-		protected SyncListStatisticSyncStruct syncStatistics = new SyncListStatisticSyncStruct();
+		protected SyncListStatisticSyncStruct syncData = new SyncListStatisticSyncStruct();
 		
 		// -------------------------------------------------------------------------------
 		// AddEntry
@@ -31,7 +31,7 @@ namespace wovencode {
 		public void AddEntry(string _name, string _category, long _value)
 		{
 			StatisticSyncStruct syncStruct = new StatisticSyncStruct(_name, _category, _value);
-			syncStatistics.Add(syncStruct);
+			syncData.Add(syncStruct);
 		}
 		
 		// -------------------------------------------------------------------------------
@@ -42,7 +42,7 @@ namespace wovencode {
 		
 			List<StatisticSyncStruct> entryList = new List<StatisticSyncStruct>();
 			
-			foreach (StatisticSyncStruct entry in syncStatistics)
+			foreach (StatisticSyncStruct entry in syncData)
 			{
 				if (entry.Valid)
 				{
