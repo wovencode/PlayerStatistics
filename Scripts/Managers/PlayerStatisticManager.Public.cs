@@ -14,9 +14,9 @@ using wovencode;
 namespace wovencode {
 	
 	// ===================================================================================
-	// StatisticManager
+	// PlayerStatisticManager
 	// ===================================================================================
-	public partial class StatisticManager
+	public partial class PlayerStatisticManager
 	{
 		
 		// -------------------------------------------------------------------------------

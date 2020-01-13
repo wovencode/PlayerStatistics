@@ -15,11 +15,11 @@ using wovencode;
 namespace wovencode {
 	
 	// ===================================================================================
-	// StatisticManager
+	// PlayerStatisticManager
 	// ===================================================================================
 	[DisallowMultipleComponent]
 	[System.Serializable]
-	public partial class StatisticManager : SyncableManager
+	public partial class PlayerStatisticManager : SyncableManager
 	{
 		
 		protected SyncListStatisticSyncStruct syncStatistics = new SyncListStatisticSyncStruct();

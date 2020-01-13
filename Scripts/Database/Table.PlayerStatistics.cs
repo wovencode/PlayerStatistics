@@ -17,9 +17,9 @@ namespace wovencode
 	{
 	
 		// -------------------------------------------------------------------------------
-		// TableExample
+		// TablePlayerStatistics
 		// -------------------------------------------------------------------------------
-		class TableStatistics
+		class TablePlayerStatistics
 		{
 			public string 	owner 		{ get; set; }
 			public string 	name 		{ get; set; }

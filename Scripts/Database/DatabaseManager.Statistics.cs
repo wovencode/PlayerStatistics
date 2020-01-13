@@ -28,8 +28,8 @@ namespace wovencode
 	   	[DevExtMethods("Init")]
 	   	public void Init_Statistics()
 	   	{
-	   		CreateTable<TableStatistics>();
-        	CreateIndex(nameof(TableStatistics), new []{"owner", "name"});
+	   		CreateTable<TablePlayerStatistics>();
+        	CreateIndex(nameof(TablePlayerStatistics), new []{"owner", "name"});
 	   	}
 	   
 	   	// -------------------------------------------------------------------------------
@@ -50,9 +50,9 @@ namespace wovencode
 		[DevExtMethods("LoadData")]
 		public void LoadData_Statistics(GameObject player)
 		{
-	   		StatisticManager manager = player.GetComponent<StatisticManager>();
+	   		PlayerStatisticManager manager = player.GetComponent<PlayerStatisticManager>();
 	   		
-	   		foreach (TableStatistics row in Query<TableStatistics>("SELECT * FROM TableStatistics WHERE owner=?", player.name))
+	   		foreach (TablePlayerStatistics row in Query<TablePlayerStatistics>("SELECT * FROM TablePlayerStatistics WHERE owner=?", player.name))
 				manager.AddEntry(row.name, row.category, row.value);
 			
 		}
@@ -67,11 +67,11 @@ namespace wovencode
 	   		// you should delete all data of this player first, to prevent duplicates
 	   		DeleteData_Statistics(player.name);
 	   		
-	   		StatisticManager manager = player.GetComponent<StatisticManager>();
+	   		PlayerStatisticManager manager = player.GetComponent<PlayerStatisticManager>();
 	   		
 	   		foreach (StatisticSyncStruct entry in manager.GetEntries(false))
 	   		{
-	   			InsertOrReplace(new TableStatistics{
+	   			InsertOrReplace(new TablePlayerStatistics{
                 	owner 			= player.name,
                 	name 			= entry.name,
                 	category 		= entry.category,
@@ -86,7 +86,7 @@ namespace wovencode
 	   	[DevExtMethods("DeleteData")]
 	   	void DeleteData_Statistics(string _name)
 	   	{
-	   		Execute("DELETE FROM TableStatistics WHERE owner=?", _name);
+	   		Execute("DELETE FROM TablePlayerStatistics WHERE owner=?", _name);
 	   	}
 	   	
 		// -------------------------------------------------------------------------------
