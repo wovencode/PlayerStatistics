@@ -19,7 +19,7 @@ namespace wovencode
 		[DevExtMethods("Constructor")]
 		public static void Constructor_SyncableStatistics()
 		{
-			EditorTools.AddScriptingDefine("WOCO_STATISTICS");
+			EditorTools.AddScriptingDefine("wSTATISTICS");
 		}
 
 	}
