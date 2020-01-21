@@ -27,17 +27,17 @@ namespace Wovencode.Database
 		// Init_Statistics
 	   	// -------------------------------------------------------------------------------
 	   	[DevExtMethods("Init")]
-	   	public void Init_Statistics()
+	   	void Init_Statistics()
 	   	{
 	   		CreateTable<TablePlayerStatistics>();
         	CreateIndex(nameof(TablePlayerStatistics), new []{"owner", "name"});
 	   	}
 	   
 	   	// -------------------------------------------------------------------------------
-	   	// CreateDefaultData_Statistics
+	   	// CreateDefaultDataPlayer_Statistics
 	   	// -------------------------------------------------------------------------------
-	   	[DevExtMethods("CreateDefaultData")]
-	   	public void CreateDefaultData_Statistics(GameObject player)
+	   	[DevExtMethods("CreateDefaultDataPlayer")]
+	   	void CreateDefaultDataPlayer_Statistics(GameObject player)
 	   	{
 	   		/*
 	   			there are no statistics by default, they are added while players
@@ -46,10 +46,10 @@ namespace Wovencode.Database
 	   	}
 	   	
 	   	// -------------------------------------------------------------------------------
-	   	// LoadData_Statistics
+	   	// LoadDataPlayer_Statistics
 		// -------------------------------------------------------------------------------
-		[DevExtMethods("LoadData")]
-		public void LoadData_Statistics(GameObject player)
+		[DevExtMethods("LoadDataPlayer")]
+		void LoadDataPlayer_Statistics(GameObject player)
 		{
 	   		PlayerStatisticComponent manager = player.GetComponent<PlayerStatisticComponent>();
 	   		
@@ -59,14 +59,14 @@ namespace Wovencode.Database
 		}
 	   	
 	   	// -------------------------------------------------------------------------------
-	   	// SaveData_Statistics
+	   	// SaveDataPlayer_Statistics
 		// -------------------------------------------------------------------------------
-		[DevExtMethods("SaveData")]
-		public void SaveData_Statistics(GameObject player)
+		[DevExtMethods("SaveDataPlayer")]
+		void SaveDataPlayer_Statistics(GameObject player, bool isOnline)
 		{
 	   		
 	   		// you should delete all data of this player first, to prevent duplicates
-	   		DeleteData_Statistics(player.name);
+	   		DeleteDataPlayer_Statistics(player.name);
 	   		
 	   		PlayerStatisticComponent manager = player.GetComponent<PlayerStatisticComponent>();
 	   		
@@ -82,10 +82,10 @@ namespace Wovencode.Database
 		}
 	   	
 	   	// -------------------------------------------------------------------------------
-	   	// DeleteData_Statistics
+	   	// DeleteDataPlayer_Statistics
 	   	// -------------------------------------------------------------------------------
-	   	[DevExtMethods("DeleteData")]
-	   	void DeleteData_Statistics(string _name)
+	   	[DevExtMethods("DeleteDataPlayer")]
+	   	void DeleteDataPlayer_Statistics(string _name)
 	   	{
 	   		Execute("DELETE FROM TablePlayerStatistics WHERE owner=?", _name);
 	   	}
