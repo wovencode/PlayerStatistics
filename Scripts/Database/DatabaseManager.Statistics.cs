@@ -11,9 +11,10 @@ using System.IO;
 using System.Collections.Generic;
 using SQLite;
 using UnityEngine.AI;
-using wovencode;
+using Wovencode;
+using Wovencode.Database;
 
-namespace wovencode
+namespace Wovencode.Database
 {
 	
 	// ===================================================================================
