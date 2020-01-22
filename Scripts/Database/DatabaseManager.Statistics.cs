@@ -53,7 +53,7 @@ namespace Wovencode.Database
 		{
 	   		PlayerStatisticComponent manager = player.GetComponent<PlayerStatisticComponent>();
 	   		
-	   		foreach (TablePlayerStatistics row in Query<TablePlayerStatistics>("SELECT * FROM TablePlayerStatistics WHERE owner=?", player.name))
+	   		foreach (TablePlayerStatistics row in Query<TablePlayerStatistics>("SELECT * FROM "+nameof(TablePlayerStatistics)+" WHERE owner=?", player.name))
 				manager.AddEntry(row.name, row.category, row.value);
 			
 		}
@@ -87,7 +87,7 @@ namespace Wovencode.Database
 	   	[DevExtMethods("DeleteDataPlayer")]
 	   	void DeleteDataPlayer_Statistics(string _name)
 	   	{
-	   		Execute("DELETE FROM TablePlayerStatistics WHERE owner=?", _name);
+	   		Execute("DELETE FROM "+nameof(TablePlayerStatistics)+" WHERE owner=?", _name);
 	   	}
 	   	
 		// -------------------------------------------------------------------------------
